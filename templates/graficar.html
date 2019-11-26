@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Proyecto</title>
+</head>
+
+<body>
+    <form action="/graficar" method="post" enctype="multipart/form-data">
+        <select name="columna" required>
+            <option value="">Seleccionar columna</option>
+            {% for columna in columnas.columnas %}
+                <option value="{{ columna }}">{{ columna }}</option>
+            {% endfor %}
+        </select>
+    
+        <select name="tipo" required>
+            <option value="">Tipo de gráfica</option>
+            <option value="puntos">Puntos</option>
+            <option value="lineas">Lineas</option>
+            <option value="pastel">Pastel</option>
+            <option value="barras">Barras</option>
+           
+        </select>
+    
+        <input type="text" placeholder="Nombre gráfica" name="nombre" required >
+        <input type="text" value="{{ columnas.filename }}" name="filename" hidden>
+        <input type="submit" value="Gráficar">
+    </form>
+</body>
+
+</html>
